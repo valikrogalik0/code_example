@@ -1,0 +1,187 @@
+@use "@NDA/styles/common" as *;
+
+@mixin dropdown-button {
+  $block: &;
+
+  &__btn-outline-primary {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  &__btn-icon {
+    margin: 0 10px;
+  }
+
+  &__btn-download {
+    background-color: $brand-background-light;
+    color: $brand-primary;
+    height: 100%;
+    max-height: 48px;
+    padding: 0;
+
+    &::after {
+      content: none;
+      display: none;
+    }
+
+    .dropdown-toggle:before {
+      display: none;
+    }
+
+    &:hover, &:focus, &:active {
+      background-color: $brand-background-light;
+      color: $text-primary;
+
+      #{$block}__btn-text {
+        border-right: 1px solid $brand-primary;
+      }
+    }
+
+    &#{$block}__btn-container#{$block}__btn-border {
+      background-color: $brand-background-light;
+      color: $text-primary;
+
+      #{$block}__btn-text {
+        border-right: 1px solid $brand-primary;
+      }
+    }
+  }
+
+  &__menu {
+    [class~=dropdown-header] {
+      @include textSM--400;
+      color: $text-muted-0;
+    }
+
+    [class~=dropdown-item] {
+      @include textMD--500;
+      color: $brand-text-muted;
+
+      &:active {
+        background-color: $brand-background-light;
+      }
+    }
+  }
+
+  &__small {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+  }
+
+  &__large {
+    height: 48px;
+  }
+
+  &__btn-text {
+    align-items: center;
+    border-right: 1px solid $brand-primary;
+    display: flex;
+    font-weight: 600;
+    height: 100%;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding: 0 20px;
+  }
+
+  &__btn-icon {
+    font-size: 20px;
+    margin: 0 10px;
+  }
+
+  &__dropdown-item {
+    @include textMD--500;
+    color: $brand-text-muted;
+
+    &:active {
+      background-color: $brand-background-light;
+    }
+  }
+}
+
+@mixin modal-block {
+  margin-top: -22px;
+  padding: 0;
+
+  button.btn-outline-primary {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  button.btn-outline-primary__disabled {
+    background-color: $text-muted-1;
+    border: none;
+    color: $light-0;
+    opacity: 1;
+  }
+
+  .refund-icon__tooltip {
+    color: $text-primary;
+    font-size: 16px;
+    vertical-align: inherit;
+  }
+
+  .refund__container--tooltip {
+    background-color: $body-color;
+    color: $dark-0;
+    max-width: 270px;
+    padding: 6px;
+
+    @include media-breakpoint-mobile {
+      left: 16vw;
+    }
+  }
+
+  .table {
+    border-color: $color__neutral-6;
+    margin: 0;
+  }
+
+  .centered-table {
+    border-color: $color__neutral-6;
+    margin: 0;
+
+    th span {
+      white-space: nowrap;
+      text-align: center;
+      width: 100%;
+      display: inline-block;
+    }
+
+    td {
+      text-align: center;
+    }
+  }
+
+  th span {
+    white-space: nowrap;
+  }
+
+  .accordion-item {
+    border: 1px solid var(--grey-2);
+    border-radius: 0.25rem;
+    color: $light-0;
+    margin-bottom: 9px;
+
+    .accordion-button {
+      @include textMD--500;
+
+      background-color: $color__background-2;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      color: $light-0;
+      padding: 10px;
+    }
+
+    .accordion-body {
+      @include textMD--400;
+
+      background-color: white;
+      border-radius: 0.25rem;
+      color: $light-0;
+      padding: 10px;
+    }
+  }
+}
